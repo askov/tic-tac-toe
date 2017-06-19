@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simon game</title>
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+    <div class="column-1 settings-container">
+        <form name="choose-mode" class="settings-menu" action="">
+          <p>Mode:</p>
+          <fieldset>
+            <input type="radio" name="mode" value="" id="mode-one" checked="checked"/><!--
+            --><label for="mode-one">1 Player</label><!--
+            --><input type="radio" name="mode" value="" id="mode-two"/><!--
+            --><label for="mode-two">2 Players</label>
+          </fieldset>
+        </form>
+        <form name="choose-difficulty" class="settings-menu" action="">
+          <p>Difficulty:</p>
+          <fieldset>
+            <input type="radio" name="difficulty" value="" id="difficulty-easy"/><!--
+            --><label for="difficulty-easy">Easy</label><!--
+            --><input type="radio" name="difficulty" value="" id="difficulty-normal"/><!--
+            --><label for="difficulty-normal">Normal</label><!--
+          --><input type="radio" name="difficulty" value="" id="difficulty-hard" checked="checked"/><!--
+          --><label for="difficulty-hard">Hard</label><!--
+        --><input type="radio" name="difficulty" value="" id="difficulty-hardcore"/><!--
+        --><label for="difficulty-hardcore">Hardcore</label>
+          </fieldset>
+        </form>
+        <form name="choose-role" class="settings-menu role-select" action="">
+          <p>Choose player:</p>
+          <fieldset>
+            <input type="radio" name="role" value="" id="role-x" checked="checked"/><!--
+            --><label for="role-x">X</label><!--
+            --><input type="radio" name="role" value="" id="role-0"/><!--
+            --><label for="role-0">0</label>
+          </fieldset>
+        </form>
+        <button type="button" id="clear-field">Restart game</button>
+    </div>
+    <div class="column-2">
+      <div class="score">
+        <p>0 : 0</p>
+      </div>
+      <div class="status-message">
+        <p>Start game or choose player</p>
+      </div>
+      <div class="game-field center-column">
+        <svg>
+            <line x1="33.33%" y1="0" x2="33.33%" y2="100%" />
+            <line x1="66.66%" y1="0" x2="66.66%" y2="100%" />
+            <line x1="0" y1="33.33%" x2="100%" y2="33.33%" />
+            <line x1="0" y1="66.66%" x2="100%" y2="66.66%" />
+        </svg>
+          <div id="square-1"></div><!--
+          --><div id="square-2"></div><!--
+          --><div id="square-3"></div><!--
+          --><div id="square-4"></div><!--
+          --><div id="square-5"></div><!--
+          --><div id="square-6"></div><!--
+          --><div id="square-7"></div><!--
+          --><div id="square-8"></div><!--
+          --><div id="square-9"></div><!--
+          -->
+          <svg class="stroke"></svg>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="settings-icon" viewBox="0 0 80 80">
+        <path d="M 35.518867,1.387343 34.269284,13.33659 a 27.659184,27.659184 0 0 0 -4.229311,1.224008 L 22.303861,5.01752 9.0812405,15.736466 16.833616,25.29961 a 27.659184,27.659184 0 0 0 -2.106954,3.862576 L 2.7955525,27.91449 1.0252295,44.843227 12.974512,46.092829 a 27.659184,27.659184 0 0 0 1.224012,4.229289 L 4.6554335,58.058233 15.374368,71.280866 24.937527,63.52845 a 27.659184,27.659184 0 0 0 3.862602,2.106994 l -1.247701,11.931088 16.92869,1.77031 1.249596,-11.949295 a 27.659184,27.659184 0 0 0 4.229311,-1.22396 l 7.736099,9.543078 13.222633,-10.718947 -7.752375,-9.563144 a 27.659184,27.659184 0 0 0 2.106955,-3.862625 l 11.931109,1.247745 1.770322,-16.928737 -11.949281,-1.249602 a 27.659184,27.659184 0 0 0 -1.224013,-4.229336 l 9.54309,-7.736068 -10.718933,-13.222632 -9.56316,7.752415 A 27.659184,27.659184 0 0 0 51.19987,15.08874 l 1.2477,-11.931088 z m 5.58758,28.39426 A 10.638125,10.638125 0 0 1 50.580438,41.468517 10.638125,10.638125 0 0 1 38.893551,50.942534 10.638125,10.638125 0 0 1 29.41956,39.255666 10.638125,10.638125 0 0 1 41.106447,29.781603 Z" />
+      </symbol>
+    </svg>
+    <div class="icon-container">
+      <svg class="icon"><use xlink:href="#settings-icon" /></svg>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+$game-field-width-max: 600px;
+$game-field-width-min: 240px;
+$body-color: #363c47;
+$menu-color: darken($body-color, 10%);
+$grid-color: #c4c7ce;
+$nought-color: #affbff;
+$cross-color: #adffbd;
+$selection-color: #ffd396;
+$breakpoint-one: 800px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: $body-color;
+  font-size: 18px;
+  font-family: 'Patrick Hand SC', cursive;
+  color: white;
+}
+
+button {
+  font-size: 100%;
+  font-family: 'Patrick Hand SC', cursive;
+  cursor: pointer;
+  outline: none !important;
+  border: 0;
+}
+
+button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+
+.column-1 {
+  float: left;
+  width: 250px;
+  height: 100%;
+  display: block;
+  z-index: 998;
+}
+.column-2 {
+  display: block;
+  overflow: auto;
+  height: 100%;
+}
+
+.center-column {
+  width: 90%;
+  max-width: $game-field-width-max;
+  min-width: $game-field-width-min;
+  margin: 40px auto;
+}
+
+
+.settings-container {
+  display: block;
+  overflow: hidden;
+  padding: 0 10px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  background-color: $menu-color;
+  height: 100vh;
+  p {
+    padding: 20px 0 10px 0;
+  }
+  button {
+    margin: 20px 0;
+    height: 45px;
+    width: 100%;
+    background-color: $selection-color;
+    color: black;
+  }
+  button:active {
+    background-color: #6eeaa8;
+  }
+}
+
+.settings-menu {
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  fieldset {
+    border: none;
+  }
+  input[type=radio] {
+    display: none;
+  }
+  input[type=radio] + label {
+    padding: 2px 0;
+    width: 50%;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid transparent;
+  }
+  input[type=radio]:checked + label {
+    border: 1px solid $selection-color;
+    color: $selection-color;
+  }
+  input[type=radio][name=difficulty] + label {
+    width: 100%;
+  }
+}
+
+.status-message {
+  p {
+    text-align: center;
+    font-size: 120%;
+  }
+}
+.score {
+  p {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 250%;
+  }
+}
+.game-field {
+  position: relative;
+  svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    stroke: $grid-color;
+    stroke-width: 6px;
+  }
+  div {
+    position: relative;
+    margin: 0;
+    display: inline-block;
+    width: calc(100% / 3);
+    svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      g {
+        stroke-width: 10px;
+        circle {
+          stroke: $nought-color;
+          fill: none;
+        }
+        line {
+          stroke: $cross-color;
+        }
+      }
+    }
+  }
+  div:before {
+    display: inline-block;
+    content: '';
+    padding: 50% 0;
+    vertical-align: middle;
+  }
+  .stroke {
+    display: none;
+  }
+}
+
+.icon {
+  padding: 2px 5px;
+  width: 40px;
+  height: 40px;
+  fill: $selection-color;
+  vertical-align: middle;
+}
+
+.icon-container {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+@media screen and (max-width: $breakpoint-one) {
+  .settings-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+  .icon-container {
+    display: block;
+  }
+  .column-1 {
+    position: absolute;
+    width: 100%;
+  }
+}
